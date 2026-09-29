@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#5d4bd8">
+  <meta name="description" content="Garlic Phone — a multiplayer telephone game of silly prompts, drawings, and reveals.">
+  <title>Garlic Phone — draw the line</title>
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <div class="paper-noise" aria-hidden="true"></div>
+  <div id="app">
+    <section id="landing-screen" class="screen active">
+      <header class="site-header">
+        <a class="brand" href="#" data-action="home" aria-label="Garlic Phone home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 64 70" role="img"><path d="M32 9c-4-8 5-11 8-3 1 4-1 7-3 9 12 3 20 14 19 28-1 17-11 24-24 24S8 60 8 43C7 29 14 18 26 15c-3-3-5-8-1-12 4-3 7 1 7 6Z" fill="currentColor"/><path d="M29 17c-5 8-7 16-6 28 1 10 5 16 9 20" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3" opacity=".8"/><path d="M37 17c6 7 8 15 7 26-1 9-4 15-8 21" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3" opacity=".42"/></svg>
+          </span>
+          <span>garlic<span class="brand-accent">phone</span></span>
+        </a>
+        <div class="header-actions">
+          <span class="live-dot"><i></i> made for silly people</span>
+          <button class="link-button" data-action="how">How to play</button>
+        </div>
+      </header>
+      <main class="hero-wrap">
+        <div class="hero-copy">
+          <div class="eyebrow"><span>✦</span> the telephone game, but unhinged</div>
+          <h1>Draw a little.<br><em>Laugh a lot.</em></h1>
+          <p class="hero-lede">A multiplayer game of words, doodles, and delightful miscommunication. Start a phone, invite your friends, and see what your idea becomes.</p>
+          <div class="hero-cta">
+            <button class="button button-primary button-large" data-action="open-create"><span class="button-icon">＋</span> Create a game</button>
+            <button class="button button-quiet button-large" data-action="open-join">Join with a code <span class="arrow">→</span></button>
+          </div>
+          <div class="hero-note"><div class="mini-avatars"><i style="--c:#7f66ff">M</i><i style="--c:#ff766e">J</i><i style="--c:#f5b83d">A</i><i style="--c:#48c99b">R</i></div><span>No account. No downloads. Just pick up the phone.</span></div>
+        </div>
+        <div class="hero-art" aria-label="A preview of the game">
+          <div class="scribble scribble-one">hmmm...</div>
+          <div class="art-card art-card-back"><span>what if a<br>duck had a<br>motorcycle?</span><b>?</b></div>
+          <div class="art-card art-card-front"><div class="art-card-top"><span>ROUND 2 / 3</span><i>✎</i></div><div class="fake-drawing"><span class="sun"></span><span class="hill hill-one"></span><span class="hill hill-two"></span><span class="duck">◖<b>•</b>◗</span><span class="road"></span></div><div class="art-card-caption">a very fast duck</div></div>
+          <div class="floating-sticker sticker-star">✦</div><div class="floating-sticker sticker-laugh">LOL!</div>
+          <div class="art-shadow"></div>
+        </div>
+      </main>
+      <section class="feature-strip"><div><span class="feature-icon purple">✎</span><strong>Write & draw</strong><small>Pass the idea around</small></div><div><span class="feature-icon coral">↻</span><strong>Every mode</strong><small>Classic to chaotic</small></div><div><span class="feature-icon yellow">☻</span><strong>Up to 64 players</strong><small>Bring the whole room</small></div><div><span class="feature-icon green">♥</span><strong>Made for laughs</strong><small>Not for art critics</small></div></section>
+      <footer class="landing-footer"><span>garlicphone is an open-source party game</span><span>© 2025 — be kind, draw weird</span></footer>
+    </section>
+
+    <section id="lobby-screen" class="screen" hidden>
+      <header class="game-topbar">
+        <a class="brand brand-small" href="#" data-action="home"><span class="brand-mark"><svg viewBox="0 0 64 70"><path d="M32 9c-4-8 5-11 8-3 1 4-1 7-3 9 12 3 20 14 19 28-1 17-11 24-24 24S8 60 8 43C7 29 14 18 26 15c-3-3-5-8-1-12 4-3 7 1 7 6Z" fill="currentColor"/><path d="M29 17c-5 8-7 16-6 28 1 10 5 16 9 20M37 17c6 7 8 15 7 26-1 9-4 15-8 21" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3" opacity=".7"/></svg></span><span>garlic<span class="brand-accent">phone</span></span></a>
+        <div class="topbar-room"><span class="topbar-label">ROOM</span><strong id="top-room-code">-----</strong><button class="icon-button copy-room" data-action="copy-room" title="Copy invite link">⧉</button></div>
+        <div class="topbar-right"><span class="online-pill"><i></i><span id="online-count">1</span> playing</span><button class="icon-button" data-action="open-how" title="How to play">?</button><button class="avatar-button" id="my-avatar">A</button></div>
+      </header>
+      <main class="lobby-layout">
+        <div class="lobby-main">
+          <div class="room-heading"><div><div class="eyebrow small-eyebrow"><span>✦</span> your little corner of the internet</div><h2 id="room-title">A fresh phone</h2><p>Invite friends with the room code. The more players, the weirder it gets.</p></div><button class="button button-outline" data-action="copy-room"><span>⧉</span> Copy invite</button></div>
+          <div class="section-heading"><div><span class="section-kicker">01</span><h3>Choose a game mode</h3></div><span class="section-hint">Host only</span></div>
+          <div class="mode-grid" id="mode-grid"></div>
+          <div class="lobby-lower">
+            <section class="players-panel panel-card"><div class="panel-heading"><div><span class="section-kicker">02</span><h3>Who's on the phone?</h3></div><span class="player-count" id="player-count">1 / 64</span></div><div class="player-grid" id="player-grid"></div><div class="players-foot"><span class="tiny-status"><i></i> Waiting for the gang</span><button class="link-button danger-link" data-action="leave">Leave room</button></div></section>
+            <section class="settings-panel panel-card"><div class="panel-heading"><div><span class="section-kicker">03</span><h3>House rules</h3></div><button class="icon-button subtle" data-action="toggle-settings">⚙</button></div><div class="rule-list"><label><span><b>Rounds</b><small>How many passes?</small></span><select id="rounds-setting" data-setting="rounds"><option value="2">2 rounds</option><option value="3">3 rounds</option><option value="4">4 rounds</option><option value="5">5 rounds</option><option value="6">6 rounds</option></select></label><label><span><b>Timer</b><small>Keep the ideas moving</small></span><select id="timer-setting" data-setting="timer"><option value="30">30 sec</option><option value="60">1 minute</option><option value="90">90 sec</option><option value="120">2 minutes</option><option value="300">5 minutes</option></select></label><label class="switch-row"><span><b>Family friendly</b><small>Keep prompts squeaky clean</small></span><input type="checkbox" id="mature-setting" data-setting="mature"><i class="switch"></i></label></div><div class="selected-mode-note" id="selected-mode-note">Classic telephone rules. Nothing fancy, just fun.</div></section>
+          </div>
+          <div class="start-row"><div class="ready-note"><span class="ready-icon">✓</span><span><b id="ready-count">0</b> ready <small>Everyone can ready up below</small></span></div><button class="button button-primary button-start" id="start-game" data-action="start">Start the phone <span>→</span></button></div>
+        </div>
+        <aside class="chat-panel"><div class="chat-head"><div><span class="section-kicker">LIVE CHAT</span><h3>While we wait...</h3></div><span class="chat-spark">✦</span></div><div class="chat-messages" id="chat-messages"></div><form class="chat-form" id="chat-form"><input id="chat-input" autocomplete="off" placeholder="Say something nice..." maxlength="240"><button aria-label="Send message">↑</button></form><div class="quick-reactions"><button data-action="react" data-emoji="😂">😂</button><button data-action="react" data-emoji="🔥">🔥</button><button data-action="react" data-emoji="👏">👏</button><button data-action="react" data-emoji="✨">✨</button><button data-action="react" data-emoji="💀">💀</button></div></aside>
+      </main>
+    </section>
+
+    <section id="game-screen" class="screen" hidden>
+      <header class="game-topbar"><a class="brand brand-small" href="#" data-action="home"><span class="brand-mark"><svg viewBox="0 0 64 70"><path d="M32 9c-4-8 5-11 8-3 1 4-1 7-3 9 12 3 20 14 19 28-1 17-11 24-24 24S8 60 8 43C7 29 14 18 26 15c-3-3-5-8-1-12 4-3 7 1 7 6Z" fill="currentColor"/><path d="M29 17c-5 8-7 16-6 28 1 10 5 16 9 20M37 17c6 7 8 15 7 26-1 9-4 15-8 21" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3" opacity=".7"/></svg></span><span>garlic<span class="brand-accent">phone</span></span></a><div class="stage-center"><span class="stage-dot"></span><span id="game-mode-name">NORMAL</span><span class="stage-divider">/</span><span id="game-round-label">ROUND 1 OF 3</span></div><div class="topbar-right"><div class="timer-pill" id="timer-pill"><span>◷</span><strong id="timer-value">01:30</strong></div><button class="icon-button" data-action="toggle-chat" title="Open chat">☷</button><button class="avatar-button" id="game-avatar">A</button></div></header>
+      <main class="game-main">
+        <div class="game-progress"><div class="progress-label"><span id="phase-label">YOUR TURN</span><span id="submission-label">0 / 1 done</span></div><div class="progress-track"><i id="progress-bar"></i></div></div>
+        <div id="waiting-view" class="task-view waiting-view" hidden><div class="waiting-orbit"><span>✎</span><span>◌</span><span>✦</span></div><h2>Nice. Your part is in the phone.</h2><p>We're waiting for <b id="waiting-count">the rest of the room</b> to finish their turn.</p><div class="waiting-dots"><i></i><i></i><i></i></div><div class="waiting-reaction-row"><span>Keep the vibes going</span><button data-action="react" data-emoji="😂">😂</button><button data-action="react" data-emoji="🔥">🔥</button><button data-action="react" data-emoji="👏">👏</button></div></div>
+        <div id="writing-view" class="task-view" hidden><div class="task-intro"><span class="round-stamp">WRITE</span><h1 id="writing-title">Put your spin on it.</h1><p id="writing-subtitle">No pressure. The first thought is usually the funniest.</p></div><div class="prompt-card"><span class="prompt-label">YOUR PROMPT</span><div class="prompt-text" id="writing-prompt">A very suspicious sandwich</div><span class="prompt-squiggle">〰〰</span></div><div class="writing-box"><textarea id="writing-input" maxlength="280" placeholder="Type what you imagine..." spellcheck="true"></textarea><div class="writing-box-foot"><span id="character-count">0 / 280</span><button class="button button-primary" id="submit-writing" data-action="submit-writing">Pass it on <span>→</span></button></div></div><div class="prompt-suggestions"><span>Need a nudge?</span><button data-prompt="Make it dramatic">Make it dramatic</button><button data-prompt="Add a tiny hat">Add a tiny hat</button><button data-prompt="Make it suspicious">Make it suspicious</button></div></div>
+        <div id="drawing-view" class="task-view drawing-view" hidden><div class="task-intro drawing-intro"><span class="round-stamp coral-stamp">DRAW</span><h1 id="drawing-title">Draw what you see.</h1><p id="drawing-subtitle">Stick figures are not only allowed, they are encouraged.</p></div><div class="reference-card" id="reference-card"><span class="prompt-label">DRAW THIS IDEA</span><div class="reference-content" id="drawing-prompt">A very suspicious sandwich</div></div><div class="canvas-wrap"><canvas id="draw-canvas" width="1100" height="610"></canvas><div class="canvas-hint" id="canvas-hint">Your masterpiece goes here ✦</div></div><div class="draw-controls"><div class="tool-group"><button class="tool-button active" data-tool="pen" title="Pen">✎</button><button class="tool-button" data-tool="eraser" title="Eraser">⌫</button><button class="tool-button" data-action="undo" title="Undo">↶</button><button class="tool-button" data-action="redo" title="Redo">↷</button><button class="tool-button" data-action="clear-canvas" title="Clear canvas">⌑</button></div><div class="color-group" id="color-group"><button class="color-swatch active" style="--swatch:#24233c" data-color="#24233c"></button><button class="color-swatch" style="--swatch:#ff5f5f" data-color="#ff5f5f"></button><button class="color-swatch" style="--swatch:#ffb52e" data-color="#ffb52e"></button><button class="color-swatch" style="--swatch:#48bd83" data-color="#48bd83"></button><button class="color-swatch" style="--swatch:#4c8bf5" data-color="#4c8bf5"></button><button class="color-swatch" style="--swatch:#9d65e8" data-color="#9d65e8"></button><button class="color-swatch" style="--swatch:#fff" data-color="#fff"></button></div><label class="brush-size"><span>Size</span><input type="range" id="brush-size" min="2" max="42" value="8"></label><button class="button button-primary" data-action="submit-drawing">Pass it on <span>→</span></button></div></div>
+        <div id="gallery-view" class="task-view gallery-view" hidden><div class="gallery-heading"><div><span class="round-stamp yellow-stamp">REVEAL</span><h1>The phone has spoken.</h1><p>From innocent idea to beautiful nonsense. Tap a chain to rate it.</p></div><button class="button button-outline" data-action="copy-room">Invite someone to the reveal ↗</button></div><div class="gallery-toolbar"><span><b id="gallery-count">0</b> telephone chains</span><div class="gallery-filters"><button class="active" data-gallery-filter="all">All stories</button><button data-gallery-filter="text">Words</button><button data-gallery-filter="drawing">Drawings</button></div></div><div class="gallery-grid" id="gallery-grid"></div><div class="gallery-footer"><div class="reaction-burst" id="reaction-burst"></div><button class="button button-primary" data-action="play-again">Play another <span>↻</span></button></div></div>
+      </main>
+      <div class="floating-reactions" id="floating-reactions"></div>
+    </section>
+  </div>
+
+  <div id="modal-layer" class="modal-layer" hidden></div>
+  <div id="toast-stack" class="toast-stack" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
