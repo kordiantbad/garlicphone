@@ -154,9 +154,13 @@ def target_for(room: dict, pid: str) -> str:
     ids = [p["id"] for p in people]
     if pid not in ids:
         return pid
-    # The starter owns their first prompt. On later passes each player gets the
-    # previous person's chain, which is the core telephone mechanic.
-    if room["round"] <= 1:
+    # The starter owns their first prompt. On the drawing pass, a player gets
+    # the previous person's chain. On the following guessing/writing pass the
+    # chain changes hands again: use the player's own chain, whose latest
+    # drawing was made by somebody else. Alternating these assignments is
+    # important — keeping ``previous`` for every round would hand a player's
+    # own drawing straight back to them to guess.
+    if room["round"] <= 1 or room["round"] % 2 == 1:
         return pid
     return ids[(ids.index(pid) - 1) % len(ids)]
 
